@@ -14,6 +14,7 @@ import Venues from './Pages/Venues.jsx'
 import Gallery from './Pages/Gallery.jsx'
 import Blog from './Pages/Blog.jsx'
 import ContactPage from './Pages/Contact.jsx'
+import GetQuote from './Pages/GetQuote.jsx'
 
 function App() {
   const { theme, toggleTheme } = useTheme()
@@ -255,8 +256,8 @@ function App() {
               </svg>
             )}
           </button>
-          <button className="btn-outline" onClick={() => navigateTo('contact')}>Get Quote</button>
-          <button className="btn-filled" onClick={() => navigateTo('contact')}>Book Consultation</button>
+          <button className="btn-outline" onClick={() => navigateTo('get-quote')}>Get Quote</button>
+          <button className="btn-filled" onClick={() => navigateTo('get-quote')}>Book Consultation</button>
         </div>
 
         {/* Hamburger Toggle */}
@@ -353,8 +354,8 @@ function App() {
         </ul>
 
         <div className="mobile-nav-actions">
-          <button className="btn-outline" onClick={() => navigateTo('contact')}>Get Quote</button>
-          <button className="btn-filled" onClick={() => navigateTo('contact')}>Book Consultation</button>
+          <button className="btn-outline" onClick={() => navigateTo('get-quote')}>Get Quote</button>
+          <button className="btn-filled" onClick={() => navigateTo('get-quote')}>Book Consultation</button>
           <button className="theme-toggle-btn mobile-theme-btn" onClick={toggleTheme} aria-label="Toggle Theme">
             {theme === 'dark' ? (
               <>
@@ -456,6 +457,10 @@ function App() {
 
       {currentPage === 'contact' && (
         <ContactPage navigateTo={navigateTo} />
+      )}
+
+      {currentPage === 'get-quote' && (
+        <GetQuote navigateTo={navigateTo} />
       )}
 
       {/* 11. Footer Section */}
@@ -584,7 +589,7 @@ function App() {
               </div>
             </div>
 
-            <button className="footer-consult-btn" onClick={() => navigateTo('contact')}>Book Consultation</button>
+            <button className="footer-consult-btn" onClick={() => navigateTo('get-quote')}>Book Consultation</button>
           </div>
         </div>
 
@@ -606,7 +611,7 @@ function App() {
           </svg>
           WhatsApp Us
         </a>
-        <button className="floating-btn quote-btn" onClick={() => navigateTo('contact')}>
+        <button className="floating-btn quote-btn" onClick={() => navigateTo('get-quote')}>
           <svg viewBox="0 0 24 24">
             <line x1="22" y1="2" x2="11" y2="13" />
             <polygon points="22 2 15 22 11 13 2 9 22 2" />
