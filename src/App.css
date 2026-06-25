@@ -5736,3 +5736,145 @@ body, section, header, footer, .service-card, .testimonial-card, .partner-card, 
   }
 }
 
+/* Consultation Booking Page Styles */
+.quote-step-subtitle-hint {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: -20px;
+  margin-bottom: 30px;
+  letter-spacing: 0.03em;
+}
+
+.consult-services-grid {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.consult-service-card {
+  padding: 28px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.consult-service-name {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 0;
+}
+
+.consult-time-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.consult-time-card {
+  padding: 20px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.consult-time-value {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0;
+}
+
+.consult-time-card.selected .consult-time-value {
+  color: var(--bg-color);
+}
+
+.consult-success-icon {
+  background-color: rgba(197, 168, 128, 0.1);
+  border-color: var(--gold-color);
+}
+
+.consult-success-icon svg {
+  stroke: var(--gold-color);
+}
+
+.consult-success-copy {
+  margin-bottom: 25px;
+}
+
+/* Consultation Summary Card (Figma summary box) */
+.consultation-summary-card {
+  width: 100%;
+  max-width: 480px;
+  background-color: rgba(197, 168, 128, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 25px 30px;
+  margin: 10px auto 35px;
+  text-align: left;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.summary-row:first-child {
+  padding-top: 0;
+}
+
+.summary-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.summary-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold-color);
+}
+
+.consult-success-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.consult-success-actions .return-home-btn {
+  min-width: 180px;
+}
+
+/* Date picker page alignment */
+.date-picker-group {
+  max-width: 400px;
+  margin: 10px auto 40px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .consult-services-grid {
+    grid-template-columns: 1fr;
+  }
+  .consultation-summary-card {
+    padding: 20px;
+  }
+  .consult-success-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .consult-success-actions .return-home-btn {
+    width: 100%;
+  }
+}
+
+

@@ -15,6 +15,7 @@ import Gallery from './Pages/Gallery.jsx'
 import Blog from './Pages/Blog.jsx'
 import ContactPage from './Pages/Contact.jsx'
 import GetQuote from './Pages/GetQuote.jsx'
+import BookConsultation from './Pages/BookConsultation.jsx'
 
 function App() {
   const { theme, toggleTheme } = useTheme()
@@ -257,7 +258,7 @@ function App() {
             )}
           </button>
           <button className="btn-outline" onClick={() => navigateTo('get-quote')}>Get Quote</button>
-          <button className="btn-filled" onClick={() => navigateTo('get-quote')}>Book Consultation</button>
+          <button className="btn-filled" onClick={() => navigateTo('book-consultation')}>Book Consultation</button>
         </div>
 
         {/* Hamburger Toggle */}
@@ -355,7 +356,7 @@ function App() {
 
         <div className="mobile-nav-actions">
           <button className="btn-outline" onClick={() => navigateTo('get-quote')}>Get Quote</button>
-          <button className="btn-filled" onClick={() => navigateTo('get-quote')}>Book Consultation</button>
+          <button className="btn-filled" onClick={() => navigateTo('book-consultation')}>Book Consultation</button>
           <button className="theme-toggle-btn mobile-theme-btn" onClick={toggleTheme} aria-label="Toggle Theme">
             {theme === 'dark' ? (
               <>
@@ -461,6 +462,10 @@ function App() {
 
       {currentPage === 'get-quote' && (
         <GetQuote navigateTo={navigateTo} />
+      )}
+
+      {currentPage === 'book-consultation' && (
+        <BookConsultation navigateTo={navigateTo} />
       )}
 
       {/* 11. Footer Section */}
@@ -589,7 +594,7 @@ function App() {
               </div>
             </div>
 
-            <button className="footer-consult-btn" onClick={() => navigateTo('get-quote')}>Book Consultation</button>
+            <button className="footer-consult-btn" onClick={() => navigateTo('book-consultation')}>Book Consultation</button>
           </div>
         </div>
 

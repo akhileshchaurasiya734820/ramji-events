@@ -139,7 +139,7 @@ export default function ServiceDetail({ navigateTo, selectedServiceId, activeFaq
         <div className="wedding-sidebar-col">
           <div className="wedding-sidebar">
             <h3 className="sidebar-title">Start Planning Today</h3>
-            <button className="btn-filled" onClick={() => navigateTo('get-quote')}>BOOK FREE CONSULTATION</button>
+            <button className="btn-filled" onClick={() => navigateTo('book-consultation')}>BOOK FREE CONSULTATION</button>
             <div className="sidebar-or">or</div>
             <button className="btn-outline" onClick={() => navigateTo('get-quote')}>REQUEST A QUOTE</button>
             <div className="sidebar-divider"></div>

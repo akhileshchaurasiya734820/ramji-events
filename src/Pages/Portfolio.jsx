@@ -129,7 +129,7 @@ export default function Portfolio({
           <h2 className="portfolio-cta-title">INSPIRED? LET'S CREATE YOUR STORY.</h2>
           <p className="portfolio-cta-desc">Every project in this portfolio started with a conversation. Let's start yours.</p>
           <div className="portfolio-cta-buttons">
-            <button className="btn-filled" onClick={() => navigateTo('get-quote')}>BOOK CONSULTATION</button>
+            <button className="btn-filled" onClick={() => navigateTo('book-consultation')}>BOOK CONSULTATION</button>
             <button className="btn-outline" onClick={() => navigateTo('get-quote')}>GET QUOTE</button>
           </div>
         </div>
