@@ -17,12 +17,13 @@ import ContactPage from './Pages/Contact.jsx'
 import GetQuote from './Pages/GetQuote.jsx'
 import BookConsultation from './Pages/BookConsultation.jsx'
 import Testimonials from './Pages/Testimonials.jsx'
+import FAQ from './Pages/FAQ.jsx'
 
 function App() {
   const { theme, toggleTheme } = useTheme()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeMobileDropdown, setActiveMobileDropdown] = useState(null) // 'services' | 'portfolio' | null
-  const [currentPage, setCurrentPage] = useState('home') // 'home' | 'about' | 'services' | 'service-detail' | 'portfolio' | 'venues' | 'gallery' | 'blog' | 'contact' | 'testimonials'
+  const [currentPage, setCurrentPage] = useState('home') // 'home' | 'about' | 'services' | 'service-detail' | 'portfolio' | 'venues' | 'gallery' | 'blog' | 'contact' | 'testimonials' | 'faq'
   const [selectedServiceId, setSelectedServiceId] = useState('wedding-planning')
   const [galleryCategory, setGalleryCategory] = useState('ALL')
   const [lightboxIndex, setLightboxIndex] = useState(null)
@@ -483,6 +484,10 @@ function App() {
         <Testimonials navigateTo={navigateTo} />
       )}
 
+      {currentPage === 'faq' && (
+        <FAQ navigateTo={navigateTo} />
+      )}
+
       {/* 11. Footer Section */}
       {showHeaderFooter && (
         <footer className="footer-section">
@@ -556,7 +561,7 @@ function App() {
                 <li><a href="#gallery" onClick={(e) => { e.preventDefault(); navigateTo('gallery'); }}>Gallery</a></li>
                 <li><a href="#testimonials" onClick={(e) => { e.preventDefault(); navigateTo('testimonials'); }}>Testimonials</a></li>
                 <li><a href="#blog" onClick={(e) => { e.preventDefault(); navigateTo('blog'); }}>Blog</a></li>
-                <li><a href="#faq" onClick={(e) => { e.preventDefault(); navigateTo('home', 'faq'); }}>FAQ</a></li>
+                <li><a href="#faq" onClick={(e) => { e.preventDefault(); navigateTo('faq'); }}>FAQ</a></li>
                 <li><a href="#contact" onClick={(e) => { e.preventDefault(); navigateTo('contact'); }}>Contact</a></li>
               </ul>
             </div>
