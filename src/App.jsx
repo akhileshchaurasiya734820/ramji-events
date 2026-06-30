@@ -18,6 +18,7 @@ import GetQuote from './Pages/GetQuote.jsx'
 import BookConsultation from './Pages/BookConsultation.jsx'
 import Testimonials from './Pages/Testimonials.jsx'
 import FAQ from './Pages/FAQ.jsx'
+import WhatsAppWidget from './Components/WhatsAppWidget.jsx'
 
 function App() {
   const { theme, toggleTheme } = useTheme()
@@ -142,7 +143,7 @@ function App() {
             </a>
           </div>
 
-          <a href="https://maps.app.goo.gl/nzkW1iyxiVdeqrye9" target="_blank" rel="noopener noreferrer" className="top-bar-item top-bar-center">
+          <a href="https://www.google.com/maps/search/?api=1&query=Ramji+events+%26+Caterers+Galaxy+Blue+Sapphire+Plaza" target="_blank" rel="noopener noreferrer" className="top-bar-item top-bar-center">
             <svg viewBox="0 0 24 24">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
               <circle cx="12" cy="10" r="3" />
@@ -599,7 +600,9 @@ function App() {
                     <circle cx="12" cy="10" r="3"/>
                   </svg>
                   <div className="contact-texts">
-                    <span>Galaxy Blue Sapphire Plaza, Greater Noida W Rd, Haibatpur, Sector 4, Greater Noida, Ghaziabad, Uttar Pradesh 201301</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Ramji+events+%26+Caterers+Galaxy+Blue+Sapphire+Plaza" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', transition: 'color var(--transition-fast)' }} className="footer-address-link">
+                      <span>Galaxy Blue Sapphire Plaza, Greater Noida W Rd, Haibatpur, Sector 4, Greater Noida, Ghaziabad, Uttar Pradesh 201301</span>
+                    </a>
                   </div>
                 </div>
 
@@ -628,17 +631,7 @@ function App() {
       {/* 10. Floating Quick Actions (WhatsApp & Get Quote) */}
       {showHeaderFooter && (
         <div className="floating-actions">
-          <a 
-            href="https://wa.me/916392956850" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="floating-btn whatsapp-btn"
-          >
-            <svg viewBox="0 0 24 24">
-              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.003 5.324 5.328 0 11.859 0c3.166.001 6.141 1.23 8.378 3.469 2.237 2.239 3.465 5.216 3.464 8.384-.003 6.536-5.328 11.86-11.859 11.86-2.007-.001-3.98-.51-5.733-1.482L0 24zm6.59-4.846c1.62.962 3.208 1.47 4.793 1.47 5.175 0 9.386-4.209 9.388-9.385.001-2.507-.975-4.864-2.747-6.638C16.309 2.827 13.96 1.85 11.859 1.85c-5.177 0-9.389 4.211-9.39 9.387-.001 1.693.463 3.344 1.341 4.796l-.99 3.616 3.737-.98c1.47.801 2.923 1.258 4.43 1.258zm9.833-7.142c-.27-.135-1.597-.788-1.845-.878-.247-.09-.427-.135-.607.135-.18.27-.697.878-.855 1.058-.158.18-.315.202-.585.067-.27-.135-1.14-.42-2.172-1.341-.803-.715-1.344-1.6-1.502-1.87-.158-.27-.017-.417.118-.552.122-.121.27-.315.405-.472.135-.158.18-.27.27-.45.09-.18.045-.337-.022-.472-.068-.135-.607-1.463-.833-2.003-.22-.53-.44-.457-.607-.466-.157-.008-.337-.01-.517-.01s-.472.067-.72.337c-.247.27-.945.923-.945 2.248s.967 2.599 1.103 2.78c.135.18 1.902 2.904 4.609 4.072.644.278 1.147.444 1.54.568.647.206 1.237.177 1.703.107.519-.078 1.597-.653 1.822-1.283.225-.63.225-1.17.158-1.283-.068-.112-.248-.18-.518-.315z" />
-            </svg>
-            WhatsApp Us
-          </a>
+          <WhatsAppWidget />
           <button className="floating-btn quote-btn" onClick={() => navigateTo('get-quote')}>
             <svg viewBox="0 0 24 24">
               <line x1="22" y1="2" x2="11" y2="13" />

@@ -4,6 +4,8 @@ import whyRamjiDining from '../assets/why_ramji_dining.png'
 import { services } from '../Data/services.jsx'
 import { portfolioProjects } from '../Data/portfolio.jsx'
 import Card from '../Theme/Card.jsx'
+import { videoConfig } from '../Data/videos.jsx'
+import VideoReelsSection from '../Components/VideoReelsSection.jsx'
 
 export default function Home({ navigateTo }) {
   const [showAllServices, setShowAllServices] = useState(false)
@@ -11,7 +13,15 @@ export default function Home({ navigateTo }) {
   return (
     <>
       {/* 4. Hero Section */}
-      <section className="hero-section" style={{ backgroundImage: `url(${heroImg})` }}>
+      <section 
+        className="hero-section" 
+        style={videoConfig.heroMediaType === 'image' ? { backgroundImage: `url(${videoConfig.heroFallbackImage})` } : {}}
+      >
+        {videoConfig.heroMediaType === 'video' && (
+          <video className="hero-video-bg" autoPlay loop muted playsInline>
+            <source src={videoConfig.heroVideoUrl} type="video/mp4" />
+          </video>
+        )}
         <div className="hero-overlay"></div>
         <div className="hero-content">
           <div className="hero-subtitle">
@@ -139,6 +149,8 @@ export default function Home({ navigateTo }) {
           <button className="btn-outline" onClick={() => navigateTo('portfolio')}>View Full Portfolio</button>
         </div>
       </section>
+
+      <VideoReelsSection />
 
       {/* 9. Why Choose Ramji Section */}
       <section className="why-ramji-section" id="why-ramji">
@@ -290,6 +302,84 @@ export default function Home({ navigateTo }) {
               <h3 className="step-title">Event Success</h3>
               <p className="step-desc">
                 We manage the live event flow so you can relax and celebrate with your guests.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8.9. Trust Badges & Certifications Section */}
+      <section className="trust-badges-section" id="credentials">
+        <div className="trust-badges-container">
+          <div className="trust-header">
+            <div className="trust-badge-label">
+              <span className="trust-badge-line"></span>
+              <span className="badge-text">Our Credentials</span>
+              <span className="trust-badge-line"></span>
+            </div>
+            <h2 className="trust-title">Trusted Excellence &amp; Certifications</h2>
+            <p className="trust-desc">
+              We adhere to the highest standards of safety, quality, and industry practices to deliver flawless luxury events.
+            </p>
+          </div>
+
+          <div className="trust-grid">
+            {/* Card 1: ISO */}
+            <div className="trust-card">
+              <div className="trust-card-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  <path d="M12 8v8" />
+                  <path d="M9 11h6" />
+                </svg>
+              </div>
+              <h3 className="trust-card-title">ISO 9001:2015</h3>
+              <span className="trust-card-subtitle">Quality Management</span>
+              <p className="trust-card-desc">
+                Governing elite quality standards and management protocols across all catering and wedding staging operations.
+              </p>
+            </div>
+
+            {/* Card 2: FSSAI */}
+            <div className="trust-card">
+              <div className="trust-card-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                </svg>
+              </div>
+              <h3 className="trust-card-title">FSSAI Certified</h3>
+              <span className="trust-card-subtitle">Lic. No. 22723019000185</span>
+              <p className="trust-card-desc">
+                Uncompromising kitchen hygiene, strict ingredient sourcing, and periodic culinary safety audits.
+              </p>
+            </div>
+
+            {/* Card 3: EEMA */}
+            <div className="trust-card">
+              <div className="trust-card-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+              </div>
+              <h3 className="trust-card-title">EEMA Member</h3>
+              <span className="trust-card-subtitle">Active Corporate Member</span>
+              <p className="trust-card-desc">
+                Apex body for event planners in India, ensuring safety compliance and ethical codes of conduct.
+              </p>
+            </div>
+
+            {/* Card 4: HACCP */}
+            <div className="trust-card">
+              <div className="trust-card-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+              </div>
+              <h3 className="trust-card-title">HACCP Certified</h3>
+              <span className="trust-card-subtitle">Food Hazard Audited</span>
+              <p className="trust-card-desc">
+                International hazard analysis control system monitoring hygiene from storage to service.
               </p>
             </div>
           </div>

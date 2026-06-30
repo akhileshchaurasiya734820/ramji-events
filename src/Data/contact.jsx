@@ -9,7 +9,7 @@ export const contactDetails = {
   ],
   headOffice: {
     address: "Galaxy Blue Sapphire Plaza, Greater Noida W Rd, Haibatpur, Sector 4, Greater Noida, Ghaziabad, Uttar Pradesh 201301",
-    mapUrl: "https://maps.app.goo.gl/nzkW1iyxiVdeqrye9"
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Ramji+events+%26+Caterers+Galaxy+Blue+Sapphire+Plaza"
   },
   hours: "24 X 7",
   regionalOffices: [

@@ -121,7 +121,9 @@ export default function ContactPage({ navigateTo }) {
                 <h3 className="contact-info-card-title">HEAD OFFICE</h3>
               </div>
               <div className="contact-info-card-content">
-                <span>{contactDetails.headOffice.address}</span>
+                <a href={contactDetails.headOffice.mapUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }} className="contact-address-link">
+                  <span>{contactDetails.headOffice.address}</span>
+                </a>
               </div>
             </div>
 

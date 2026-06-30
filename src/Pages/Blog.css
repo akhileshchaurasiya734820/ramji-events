@@ -1,0 +1,336 @@
+/* Blogging Platform styles */
+
+/* 1. Admin Control Bar */
+.blog-admin-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background-color: var(--section-alt-bg);
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.admin-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--text-muted);
+}
+
+.status-indicator.active {
+  background-color: var(--gold-color);
+  box-shadow: 0 0 8px var(--gold-color);
+  animation: admin-glow 1.5s infinite;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-admin {
+  padding: 8px 16px;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+/* 2. Blog Post Form Card */
+.blog-form-container {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  padding: 40px;
+  background-color: var(--section-alt-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: form-slide-down 0.4s ease-out;
+}
+
+.blog-form-container h2 {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  color: var(--text-primary);
+  margin-bottom: 25px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.blog-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold-color);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.form-control {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 12px 16px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.form-control:focus {
+  border-color: var(--gold-color);
+}
+
+.form-control select {
+  cursor: pointer;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 150px;
+  line-height: 1.6;
+}
+
+/* Image Asset Picker */
+.image-picker-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.image-picker-label-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: -4px;
+  margin-bottom: 5px;
+}
+
+.image-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 12px;
+  max-height: 180px;
+  overflow-y: auto;
+  padding: 8px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+/* Scrollbar for Image Picker */
+.image-picker-grid::-webkit-scrollbar {
+  width: 4px;
+}
+.image-picker-grid::-webkit-scrollbar-thumb {
+  background-color: rgba(197, 168, 128, 0.2);
+  border-radius: 4px;
+}
+
+.picker-item {
+  position: relative;
+  aspect-ratio: 16/10;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.picker-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.picker-item:hover {
+  transform: scale(1.03);
+}
+
+.picker-item.selected {
+  border-color: var(--gold-color);
+  box-shadow: 0 0 10px rgba(197, 168, 128, 0.4);
+}
+
+.selected-check {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background-color: var(--gold-color);
+  color: var(--bg-color);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 20px;
+  margin-top: 10px;
+}
+
+/* 3. Card Action Overlays in Admin Mode */
+.blog-card-admin-overlay {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.blog-card:hover .blog-card-admin-overlay {
+  opacity: 1;
+}
+
+.blog-card {
+  position: relative;
+}
+
+.btn-card-action {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: all var(--transition-fast);
+}
+
+.btn-card-action.edit {
+  background-color: var(--gold-color);
+  color: var(--bg-color);
+}
+
+.btn-card-action.edit:hover {
+  background-color: var(--gold-dark);
+  transform: scale(1.1);
+}
+
+.btn-card-action.delete {
+  background-color: #ff3b30;
+  color: #ffffff;
+}
+
+.btn-card-action.delete:hover {
+  background-color: #d62f26;
+  transform: scale(1.1);
+}
+
+.btn-card-action svg {
+  stroke: currentColor;
+  fill: none;
+}
+
+/* 4. Paragraph Formatting inside Article Modal */
+.article-modal-body p {
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 18px;
+  text-align: justify;
+}
+
+.article-modal-body h3 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  color: var(--text-primary);
+  margin: 25px 0 12px;
+}
+
+.article-modal-body ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.article-modal-body li {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+/* 5. Animations */
+@keyframes admin-glow {
+  0% { opacity: 0.5; box-shadow: 0 0 4px var(--gold-color); }
+  50% { opacity: 1; box-shadow: 0 0 12px var(--gold-color); }
+  100% { opacity: 0.5; box-shadow: 0 0 4px var(--gold-color); }
+}
+
+@keyframes form-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 6. Responsive adjustments */
+@media (max-width: 768px) {
+  .blog-admin-bar {
+    justify-content: center;
+    padding: 12px 4%;
+  }
+
+  .blog-form-container {
+    padding: 24px;
+  }
+
+  .form-group-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .image-picker-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
+  
+  .blog-card-admin-overlay {
+    opacity: 1; /* Always show action buttons on mobile since hover is unavailable */
+  }
+}

@@ -1,8 +1,11 @@
+import { useState } from 'react'
 import { SERVICE_DETAILS } from '../Data/serviceDetails.jsx'
 import { services } from '../Data/services.jsx'
+import PackageComparisonModal from '../Components/PackageComparisonModal.jsx'
 
 export default function ServiceDetail({ navigateTo, selectedServiceId, activeFaq, toggleFaq }) {
   const details = SERVICE_DETAILS[selectedServiceId] || SERVICE_DETAILS['wedding-planning'];
+  const [isCompareOpen, setIsCompareOpen] = useState(false);
 
   return (
     <div className="services-page">
@@ -46,8 +49,19 @@ export default function ServiceDetail({ navigateTo, selectedServiceId, activeFaq
 
           {/* Packages Section */}
           <section id="packages">
-            <span className="detail-section-badge">PACKAGES</span>
-            <h2 className="detail-section-title">Choose Your Experience</h2>
+            <div className="packages-section-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '15px', marginBottom: '30px' }}>
+              <div>
+                <span className="detail-section-badge">PACKAGES</span>
+                <h2 className="detail-section-title" style={{ margin: 0 }}>Choose Your Experience</h2>
+              </div>
+              <button 
+                className="btn-outline" 
+                onClick={() => setIsCompareOpen(true)}
+                style={{ padding: '10px 20px', fontSize: '12px' }}
+              >
+                📊 COMPARE PACKAGES
+              </button>
+            </div>
             <div className="packages-grid">
               {details.packages.map((pkg, idx) => (
                 <div key={idx} className={`package-card ${pkg.popular ? 'popular' : ''}`}>
@@ -75,6 +89,14 @@ export default function ServiceDetail({ navigateTo, selectedServiceId, activeFaq
                 </div>
               ))}
             </div>
+
+            <PackageComparisonModal 
+              isOpen={isCompareOpen} 
+              onClose={() => setIsCompareOpen(false)} 
+              serviceTitle={details.title} 
+              packages={details.packages} 
+              navigateTo={navigateTo}
+            />
           </section>
 
           {/* Gallery Section */}
